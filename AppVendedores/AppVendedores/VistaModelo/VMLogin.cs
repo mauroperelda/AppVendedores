@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace AppVendedores.VistaModelo
 {
@@ -48,7 +49,11 @@ namespace AppVendedores.VistaModelo
                                 usu_contraseña = item.usu_contraseña
                             };
                             ListaUsuarios.Add(log);
-                            DisplayAlert("Mensaje", "Datos correctos", "OK");
+                            if (ListaUsuarios != null)
+                            {
+                                
+                            }
+                            //DisplayAlert("Mensaje", "Datos correctos", "OK");
                         }
                     }
                 }
