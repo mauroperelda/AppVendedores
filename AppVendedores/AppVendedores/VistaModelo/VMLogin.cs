@@ -1,4 +1,5 @@
 ﻿using AppVendedores.Modelos;
+using AppVendedores.Vistas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,11 @@ namespace AppVendedores.VistaModelo
             get { return listaUsuarios; }
             set { listaUsuarios = value; OnPropertyChanged(); }
         }
-        public ObservableCollection<MLogin> GetUsuario(string login, string pass)
+
+        public async void ObtenerUsuario(string login, string pass)
         {
             login = login.ToUpper();
             pass = pass.ToUpper();
-            ListaUsuarios = new ObservableCollection<MLogin>();
             try
             {
                 string url = "http://www.mauroperelda.somee.com/api/Usuarios/" + login + "/" + pass + "";
@@ -31,11 +32,11 @@ namespace AppVendedores.VistaModelo
                 if (req.IsSuccessStatusCode)
                 {
                     var json = req.Content.ReadAsStringAsync().Result;
-                    Preferences.Set("login",json);
+                    Preferences.Set("login", json);
                     var res = JsonConvert.DeserializeObject<ObservableCollection<MLogin>>(json);
                     if (res.Count == 0)
                     {
-                        DisplayAlert("Mensaje", "Los datos ingresados son incorrectos, Corroborelos", "OK");
+                        await DisplayAlert("Mensaje", "Los datos ingresados son incorrectos, Corroborelos", "OK");
                     }
                     else
                     {
@@ -48,21 +49,60 @@ namespace AppVendedores.VistaModelo
                                 usu_login = item.usu_login,
                                 usu_contraseña = item.usu_contraseña
                             };
-                            ListaUsuarios.Add(log);
-                            if (ListaUsuarios != null)
-                            {
-                                
-                            }
-                            //DisplayAlert("Mensaje", "Datos correctos", "OK");
                         }
+                        Application.Current.MainPage = new NavigationPage(new PaginaInicio());
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
-            return ListaUsuarios;
         }
+        //public ObservableCollection<MLogin> GetUsuario(string login, string pass)
+        //{
+        //    login = login.ToUpper();
+        //    pass = pass.ToUpper();
+        //    ListaUsuarios = new ObservableCollection<MLogin>();
+        //    try
+        //    {
+        //        string url = "http://www.mauroperelda.somee.com/api/Usuarios/" + login + "/" + pass + "";
+        //        HttpResponseMessage req = cliente.GetAsync(url).Result;
+        //        if (req.IsSuccessStatusCode)
+        //        {
+        //            var json = req.Content.ReadAsStringAsync().Result;
+        //            Preferences.Set("login",json);
+        //            var res = JsonConvert.DeserializeObject<ObservableCollection<MLogin>>(json);
+        //            if (res.Count == 0)
+        //            {
+        //                DisplayAlert("Mensaje", "Los datos ingresados son incorrectos, Corroborelos", "OK");
+        //            }
+        //            else
+        //            {
+        //                foreach (var item in res)
+        //                {
+        //                    MLogin log = new MLogin
+        //                    {
+        //                        usu_codigo = item.usu_codigo,
+        //                        usu_nombre = item.usu_nombre,
+        //                        usu_login = item.usu_login,
+        //                        usu_contraseña = item.usu_contraseña
+        //                    };
+        //                    ListaUsuarios.Add(log);
+        //                    if (ListaUsuarios != null)
+        //                    {
+                                
+        //                    }
+        //                    //DisplayAlert("Mensaje", "Datos correctos", "OK");
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //    }
+        //    return ListaUsuarios;
+        //}
     }
 }
