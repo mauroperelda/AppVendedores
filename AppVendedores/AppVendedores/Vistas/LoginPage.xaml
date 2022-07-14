@@ -10,7 +10,7 @@
             </Frame>
             <StackLayout HeightRequest="800" Orientation="Vertical">
                 <Entry x:Name="Usuario" Placeholder="Usuario" Margin="50,180,50,0" TextTransform="Uppercase"/>
-                <Entry x:Name="Contraseña" Placeholder="Contraseña" Margin="50,10,50,0" IsPassword="True" TextTransform="Uppercase"/>
+                <Entry x:Name="Contraseña" Placeholder="Contraseñaa" Margin="50,10,50,0" IsPassword="True" TextTransform="Uppercase"/>
                 <Frame  Margin="100,30,100,0" Padding="0" BackgroundColor="#2196F3" CornerRadius="20">
                     <Button x:Name="btnIngresar" Text="Ingresar" BackgroundColor="#2196F3" TextColor="White" Clicked="btnIngresar_Clicked"/>
                 </Frame>
