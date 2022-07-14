@@ -19,6 +19,10 @@ namespace AppVendedores.VistaModelo
             get { return listaUsuarios; }
             set { listaUsuarios = value; OnPropertyChanged(); }
         }
+        public async void ObtenerUsuario()
+        {
+
+        }
         public ObservableCollection<MLogin> GetUsuario(string login, string pass)
         {
             login = login.ToUpper();
@@ -49,11 +53,6 @@ namespace AppVendedores.VistaModelo
                                 usu_contraseña = item.usu_contraseña
                             };
                             ListaUsuarios.Add(log);
-                            if (ListaUsuarios != null)
-                            {
-                                
-                            }
-                            //DisplayAlert("Mensaje", "Datos correctos", "OK");
                         }
                     }
                 }
