@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:m="clr-namespace:AppVendedores.Modelos"
+             x:Class="AppVendedores.Vistas.DetallePagFlotante">
+
+    <ContentPage.BindingContext>
+        <m:MLogin/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" x:Name="Usuario"/>
+        <ToolbarItem Order="Secondary" x:Name="Logout" Text="Cerrar Sesión" Clicked="Logout_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

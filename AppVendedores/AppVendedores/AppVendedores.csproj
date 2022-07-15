@@ -17,7 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Vistas\DetallePagFlotante.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vistas\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\PaginaFlotante.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vistas\PaginaInicio.xaml">

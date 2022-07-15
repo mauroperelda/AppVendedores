@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppVendedores.Vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaInicio : FlyoutPage
+    public partial class PaginaFlotante : ContentPage
     {
-        public PaginaInicio()
+        public PaginaFlotante()
         {
             InitializeComponent();
-            Flyout = new PaginaFlotante();
-            Detail = new NavigationPage(new DetallePagFlotante());
         }
     }
 }

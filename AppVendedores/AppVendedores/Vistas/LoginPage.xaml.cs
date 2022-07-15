@@ -20,7 +20,6 @@ namespace AppVendedores.Vistas
         public LoginPage()
         {
             InitializeComponent();
-
         }
 
 
@@ -36,7 +35,7 @@ namespace AppVendedores.Vistas
                 }
                 else
                 {
-                    vm.ObtenerUsuario(Usuario.Text, Contraseña.Text);
+                    vm.GetUsuario(Usuario.Text, Contraseña.Text);
                 }
             }
             catch (Exception ex)
