@@ -4,16 +4,13 @@
              xmlns:m="clr-namespace:AppVendedores.Modelos"
              x:Class="AppVendedores.Vistas.DetallePagFlotante">
 
-    <ContentPage.BindingContext>
-        <m:MLogin/>
-    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary" x:Name="Usuario"/>
         <ToolbarItem Order="Secondary" x:Name="Logout" Text="Cerrar Sesión" Clicked="Logout_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Image Source="logomaser.png" x:Name="logomaser" HeightRequest="100" VerticalOptions="Center" Aspect="AspectFit" Opacity="0.4"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

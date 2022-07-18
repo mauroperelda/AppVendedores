@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppVendedores.Vistas.PaginaFlotante"
              NavigationPage.HasNavigationBar="False"
-             Title="Maser">
+             Title="Flayout">
     <ContentPage.Content>
-        <StackLayout>
-            
-        </StackLayout>
+        <Grid RowDefinitions="60,60,60" BackgroundColor="SlateGray">
+            <Button Text="Nuevo Pedido" TextColor="Black" x:Name="btnNuevoPedido" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="0"/>
+            <Button Text="Pedidos Pendientes" TextColor="Black" x:Name="btnPedidosPendientes" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="1"/>
+            <Button Text="Devoluciones" TextColor="Black" x:Name="btnDevoluciones" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="2"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

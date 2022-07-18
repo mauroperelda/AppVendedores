@@ -36,6 +36,7 @@ namespace AppVendedores.Vistas
                 else
                 {
                     vm.GetUsuario(Usuario.Text, Contraseña.Text);
+                    //Navigation.PushModalAsync(new PaginaInicio());
                 }
             }
             catch (Exception ex)

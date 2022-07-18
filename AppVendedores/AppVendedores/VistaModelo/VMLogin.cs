@@ -97,10 +97,15 @@ namespace AppVendedores.VistaModelo
                         }
                     }
                 }
+                else
+                {
+                    DisplayAlert("Mensaje", "Complete Campos", "OK");
+                    
+                }
             }
             catch (Exception ex)
             {
-
+                DisplayAlert("Mensaje",""+ex.Message, "OK");
             }
             return ListaUsuarios;
         }
