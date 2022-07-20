@@ -28,7 +28,7 @@ namespace AppVendedores.VistaModelo
             ListaUsuarios = new ObservableCollection<MLogin>();
             try
             {
-                string url = "http://www.mauroperelda.somee.com/api/Usuarios/" + login + "/" + pass + "";
+                string url = "http://24.232.208.83:8085/apiUsuario/api/Usuarios/" + login + "/" + pass + "";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {

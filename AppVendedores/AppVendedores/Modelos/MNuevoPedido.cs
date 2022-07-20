@@ -22,6 +22,8 @@ namespace AppVendedores.Modelos
         public string pro_descri { get; set; }
         public int cli_formpag { get; set; }
         public int cli_condvta { get; set; }
+        public string tip_descri { get; set; }
+        public int tip_codigo { get; set; }
 
     }
 }

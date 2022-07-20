@@ -36,7 +36,7 @@ namespace AppVendedores.VistaModelo
             ListaClientes = new ObservableCollection<MNuevoPedido>();
             try
             {
-                string url = "http://24.232.208.83:8000/apivale/clientes.php";
+                string url = "http://24.232.208.83:8085/Clientes/api/Clientes";
                 HttpResponseMessage request = cliente.GetAsync(url).Result;
                 if (request.IsSuccessStatusCode)
                 {
@@ -55,7 +55,9 @@ namespace AppVendedores.VistaModelo
                             pro_descri = item.pro_descri,
                             cli_formpag = item.cli_formpag,
                             cli_condvta = item.cli_condvta,
-                            cuit = item.cuit
+                            cuit = item.cuit,
+                            tip_descri = item.tip_descri,
+                            tip_codigo = item.tip_codigo
                         };
                         ListaClientes.Add(Npedido);
                     }
@@ -72,7 +74,7 @@ namespace AppVendedores.VistaModelo
             FormaPago = new ObservableCollection<MFormaPago>();
             try
             {
-                string url = "http://24.232.208.83:8000/apivale/forma_pago.php";
+                string url = "http://24.232.208.83:8085/FormaPago/api/FormaPago";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {
@@ -100,7 +102,7 @@ namespace AppVendedores.VistaModelo
             Condvta = new ObservableCollection<MCondVenta>();
             try
             {
-                string url = "http://24.232.208.83:8000/apivale/condvta.php";
+                string url = "http://24.232.208.83:8085/CondicionVenta/api/CondicionVenta";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {

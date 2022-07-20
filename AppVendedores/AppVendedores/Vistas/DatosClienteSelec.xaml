@@ -31,6 +31,9 @@
                 </StackLayout>
                 <Picker x:Name="pickerFormaPago" Title="Forma de Pago" ItemDisplayBinding="{Binding for_descri}"/>
                 <Picker x:Name="pickerCondVta" Title="Condicion de Venta" ItemDisplayBinding="{Binding tip_descri}"/>
+                <Label x:Name="codigoFormPago" IsVisible="false"/>
+                <Label x:Name="condVta" IsVisible="false"/>
+                <Label x:Name="codigoCondVta" IsVisible="false"/>
             </StackLayout>
         </Frame>
     </StackLayout>

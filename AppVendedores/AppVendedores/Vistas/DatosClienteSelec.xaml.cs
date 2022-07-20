@@ -36,7 +36,12 @@ namespace AppVendedores.Vistas
                 nombreCliente.Text = deserializer?.cli_nombre;
                 domicilioCliente.Text = deserializer?.cli_domicilio;
                 localidadCliente.Text = deserializer?.loc_nombre;
+                codigoFormPago.Text = Convert.ToString(deserializer?.cli_formpag);
+                condVta.Text = deserializer?.tip_descri;
+                codigoCondVta.Text = Convert.ToString(deserializer?.tip_codigo);
             }
+            pickerFormaPago.SelectedIndex = (Convert.ToInt32(codigoFormPago.Text)-1);
+            pickerCondVta.SelectedIndex = (Convert.ToInt32(codigoCondVta.Text)-1);
         }
     }
 }
