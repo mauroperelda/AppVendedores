@@ -16,5 +16,20 @@ namespace AppVendedores.Vistas
         {
             InitializeComponent();
         }
+
+        private void btnNuevoPedido_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new NavigationPage(new NuevoPedido()));
+        }
+
+        private void btnPedidosPendientes_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDevoluciones_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

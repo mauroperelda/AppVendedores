@@ -21,44 +21,6 @@ namespace AppVendedores.VistaModelo
             set { listaUsuarios = value; OnPropertyChanged(); }
         }
 
-        //public async void ObtenerUsuario(string login, string pass)
-        //{
-        //    login = login.ToUpper();
-        //    pass = pass.ToUpper();
-        //    try
-        //    {
-        //        string url = "http://www.mauroperelda.somee.com/api/Usuarios/" + login + "/" + pass + "";
-        //        HttpResponseMessage req = cliente.GetAsync(url).Result;
-        //        if (req.IsSuccessStatusCode)
-        //        {
-        //            var json = req.Content.ReadAsStringAsync().Result;
-        //            Preferences.Set("login", json);
-        //            var res = JsonConvert.DeserializeObject<ObservableCollection<MLogin>>(json);
-        //            if (res.Count == 0)
-        //            {
-        //                await DisplayAlert("Mensaje", "Los datos ingresados son incorrectos, Corroborelos", "OK");
-        //            }
-        //            else
-        //            {
-        //                foreach (var item in res)
-        //                {
-        //                    MLogin log = new MLogin
-        //                    {
-        //                        usu_codigo = item.usu_codigo,
-        //                        usu_nombre = item.usu_nombre,
-        //                        usu_login = item.usu_login,
-        //                        usu_contraseña = item.usu_contraseña
-        //                    };
-        //                }
-        //                Application.Current.MainPage = new PaginaInicio();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await DisplayAlert("Mensaje",""+ex.Message,"OK");
-        //    }
-        //}
         public ObservableCollection<MLogin> GetUsuario(string login, string pass)
         {
             login = login.ToUpper();

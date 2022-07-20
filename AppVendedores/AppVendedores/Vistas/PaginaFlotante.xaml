@@ -8,13 +8,13 @@
         <Grid RowDefinitions="60,60,60" BackgroundColor="SlateGray">
             <Button Text="Nuevo Pedido" TextColor="Black" x:Name="btnNuevoPedido" 
                     BackgroundColor="White" Image="mas.png"
-                    HorizontalOptions="FillAndExpand" Grid.Row="0"/>
+                    HorizontalOptions="FillAndExpand" Grid.Row="0" Clicked="btnNuevoPedido_Clicked"/>
             <Button Text="Pedidos Pendientes" TextColor="Black" x:Name="btnPedidosPendientes" 
                     BackgroundColor="White" Image="mas.png"
-                    HorizontalOptions="FillAndExpand" Grid.Row="1"/>
+                    HorizontalOptions="FillAndExpand" Grid.Row="1" Clicked="btnPedidosPendientes_Clicked"/>
             <Button Text="Devoluciones" TextColor="Black" x:Name="btnDevoluciones" 
                     BackgroundColor="White" Image="mas.png"
-                    HorizontalOptions="FillAndExpand" Grid.Row="2"/>
+                    HorizontalOptions="FillAndExpand" Grid.Row="2" Clicked="btnDevoluciones_Clicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

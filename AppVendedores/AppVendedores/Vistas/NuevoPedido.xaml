@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vmNuevoPedido="clr-namespace:AppVendedores.VistaModelo"
+             x:Class="AppVendedores.Vistas.NuevoPedido"
+             Title="Seleccion de Cliente">
+
+    <ContentPage.BindingContext>
+        <vmNuevoPedido:VMNuevoPedido/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Grid RowDefinitions="60,*">
+            <Frame Grid.Row="0" Padding="10,3" Margin="0,5" CornerRadius="30" BackgroundColor="White" BorderColor="LightGray">
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="BuscarCliente" TextTransform="Uppercase" HorizontalOptions="FillAndExpand"/>
+                    <Button x:Name="btnBuscarCliente" Image="Lupa.png" BackgroundColor="White" HorizontalOptions="End"
+                            WidthRequest="35" Clicked="btnBuscarCliente_Clicked"/>
+                </StackLayout>
+            </Frame>
+            <ListView Grid.Row="1" x:Name="ListaClientes" ItemTapped="ListaClientes_ItemTapped" ItemsSource="{Binding ListaClientes}" 
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="0">
+                                <StackLayout>
+                                    <Label Text="{Binding cli_nombre}" TextColor="Black" FontSize="20"/>
+                                    <Label Text="{Binding loc_nombre}" TextColor="Black" FontSize="16"/>
+                                    <Label Text="{Binding cli_domicilio}" TextColor="Black" FontSize="16"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
