@@ -9,8 +9,6 @@ namespace AppVendedores.Modelos
         public int cli_codigo { get; set; }
         public string cli_nombre { get; set; }
         public string cli_domicilio { get; set; }
-        public int cli_codpos1 { get; set; }
-        public int cli_codpos2 { get; set; }
         public string cli_telefono { get; set; }
         public string cli_celular { get; set; }
         public string cuit { get; set; }
@@ -23,7 +21,6 @@ namespace AppVendedores.Modelos
         public int cli_formpag { get; set; }
         public int cli_condvta { get; set; }
         public string tip_descri { get; set; }
-        public int tip_codigo { get; set; }
 
     }
 }

@@ -31,35 +31,41 @@ namespace AppVendedores.VistaModelo
             get { return _condvta; }
             set { _condvta = value; OnPropertyChanged(); }
         }
-        public ObservableCollection<MNuevoPedido> GetCliente()
+        public ObservableCollection<MNuevoPedido> GetClientes(string cli_nombre)
         {
             ListaClientes = new ObservableCollection<MNuevoPedido>();
             try
             {
-                string url = "http://24.232.208.83:8085/Clientes/api/Clientes";
+                string url = "http://24.232.208.83:8085/Clientes/api/Clientes/"+cli_nombre+"";
                 HttpResponseMessage request = cliente.GetAsync(url).Result;
                 if (request.IsSuccessStatusCode)
                 {
                     var json = request.Content.ReadAsStringAsync().Result;
                     var response = JsonConvert.DeserializeObject<ObservableCollection<MNuevoPedido>>(json);
-                    foreach (var item in response)
+                    if (response.Count > 0)
                     {
-                        MNuevoPedido Npedido = new MNuevoPedido 
+                        foreach (var item in response)
                         {
-                            cli_codigo = item.cli_codigo,
-                            cli_nombre = item.cli_nombre,
-                            cli_domicilio = item.cli_domicilio,
-                            iva_condicion = item.iva_condicion,
-                            loc_nombre = item.loc_nombre,
-                            cod_postal = item.cod_postal,
-                            pro_descri = item.pro_descri,
-                            cli_formpag = item.cli_formpag,
-                            cli_condvta = item.cli_condvta,
-                            cuit = item.cuit,
-                            tip_descri = item.tip_descri,
-                            tip_codigo = item.tip_codigo
-                        };
-                        ListaClientes.Add(Npedido);
+                            MNuevoPedido Npedido = new MNuevoPedido
+                            {
+                                cli_codigo = item.cli_codigo,
+                                cli_nombre = item.cli_nombre,
+                                cli_domicilio = item.cli_domicilio,
+                                iva_condicion = item.iva_condicion,
+                                loc_nombre = item.loc_nombre,
+                                cod_postal = item.cod_postal,
+                                pro_descri = item.pro_descri,
+                                cli_formpag = item.cli_formpag,
+                                cli_condvta = item.cli_condvta,
+                                cuit = item.cuit,
+                                tip_descri = item.tip_descri
+                            };
+                            ListaClientes.Add(Npedido);
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert("Advertencia", "No se encontraron datos en la BD", "OK");
                     }
                 }
             }
@@ -80,14 +86,21 @@ namespace AppVendedores.VistaModelo
                 {
                     var json = req.Content.ReadAsStringAsync().Result;
                     var res = JsonConvert.DeserializeObject<ObservableCollection<MFormaPago>>(json);
-                    foreach (var item in res)
+                    if (res.Count > 0)
                     {
-                        MFormaPago FPago = new MFormaPago
+                        foreach (var item in res)
                         {
-                            for_codigo = item.for_codigo,
-                            for_descri = item.for_descri
-                        };
-                        FormaPago.Add(FPago);
+                            MFormaPago FPago = new MFormaPago
+                            {
+                                for_codigo = item.for_codigo,
+                                for_descri = item.for_descri
+                            };
+                            FormaPago.Add(FPago);
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert("Advertencia", "No se encontraron datos en la BD", "OK");
                     }
                 }
             }
@@ -108,14 +121,21 @@ namespace AppVendedores.VistaModelo
                 {
                     var json = req.Content.ReadAsStringAsync().Result;
                     var res = JsonConvert.DeserializeObject<ObservableCollection<MCondVenta>>(json);
-                    foreach (var item in res)
+                    if (res.Count > 0)
                     {
-                        MCondVenta CondVta = new MCondVenta
+                        foreach (var item in res)
                         {
-                            tip_codigo = item.tip_codigo,
-                            tip_descri = item.tip_descri
-                        };
-                        Condvta.Add(CondVta);
+                            MCondVenta CondVta = new MCondVenta
+                            {
+                                tip_codigo = item.tip_codigo,
+                                tip_descri = item.tip_descri
+                            };
+                            Condvta.Add(CondVta);
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert("Advertencia", "No se encontraron datos en la BD", "OK");
                     }
                 }
             }

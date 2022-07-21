@@ -7,7 +7,7 @@
         <vmNuevoPedido:VMNuevoPedido/>
     </ContentPage.BindingContext>
     <StackLayout BackgroundColor="Black">
-        <Frame VerticalOptions="FillAndExpand" Margin="5" BackgroundColor="White" CornerRadius="20">
+        <Frame VerticalOptions="FillAndExpand" Margin="5" Padding="5" BackgroundColor="White" CornerRadius="20">
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Nombre:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>

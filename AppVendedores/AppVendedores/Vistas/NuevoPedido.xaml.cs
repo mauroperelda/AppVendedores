@@ -19,7 +19,7 @@ namespace AppVendedores.Vistas
         public NuevoPedido()
         {
             InitializeComponent();
-            ListaClientes.ItemsSource = vmPedido.GetCliente();
+            ListaClientes.ItemsSource = vmPedido.GetClientes(BuscarCliente.Text);
         }
 
         private void ListaClientes_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -35,7 +35,7 @@ namespace AppVendedores.Vistas
 
         private void btnBuscarCliente_Clicked(object sender, EventArgs e)
         {
-            ListaClientes.ItemsSource = vmPedido.GetCliente().Where(c => c.cli_nombre.ToUpper().Contains(BuscarCliente.Text.ToUpper()));
+            ListaClientes.ItemsSource = vmPedido.GetClientes(BuscarCliente.Text).Where(c => c.cli_nombre.ToUpper().Contains(BuscarCliente.Text.ToUpper()));
         }
     }
 }
