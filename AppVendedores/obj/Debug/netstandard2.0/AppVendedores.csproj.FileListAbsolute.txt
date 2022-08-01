@@ -1,0 +1,75 @@
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.deps.json
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.AssemblyReference.cache
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfoInputs.cache
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfo.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.CoreCompileInputs.cache
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\refint\AppVendedores.dll
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\ref\AppVendedores.dll
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\LoginPage.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.deps.json
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.AssemblyReference.cache
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\LoginPage.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfoInputs.cache
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfo.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.CoreCompileInputs.cache
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\refint\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\ref\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaInicio.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DetallePagFlotante.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaFlotante.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\NuevoPedido.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DatosClienteSelec.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PageCargarArt.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\Articulo.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\App.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\Articulo.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\DatosClienteSelec.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\DetallePagFlotante.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\LoginPage.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\NuevoPedido.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\PageCargarArt.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\PaginaFlotante.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores\Vistas\PaginaInicio.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\Articulo.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DatosClienteSelec.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DetallePagFlotante.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\NuevoPedido.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PageCargarArt.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaFlotante.xaml.g.cs
+C:\Users\Valentin\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaInicio.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.deps.json
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\bin\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.AssemblyReference.cache
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\Articulo.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DatosClienteSelec.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\DetallePagFlotante.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\LoginPage.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\NuevoPedido.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PageCargarArt.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaFlotante.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PaginaInicio.xaml.g.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfoInputs.cache
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.AssemblyInfo.cs
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.csproj.CoreCompileInputs.cache
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.dll
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\refint\AppVendedores.dll
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.pdb
+C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\ref\AppVendedores.dll

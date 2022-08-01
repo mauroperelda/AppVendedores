@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vmNuevoPedido="clr-namespace:AppVendedores.VistaModelo"
+             x:Class="AppVendedores.Vistas.DatosClienteSelec"
+             Title="Datos Cliente">
+    <ContentPage.BindingContext>
+        <vmNuevoPedido:VMNuevoPedido/>
+    </ContentPage.BindingContext>
+
+    <Frame VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0" Padding="5,3">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Nombre:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label x:Name="nombreCliente" FontSize="18" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Domicilio:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label x:Name="domicilioCliente" FontSize="18" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Localidad:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label x:Name="localidadCliente" FontSize="18" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Condición IVA:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label x:Name="iva_condicion" TextColor="Black" FontSize="18"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="CUIT:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label x:Name="cuit" TextColor="Black" FontSize="18"/>
+            </StackLayout>
+            <Frame>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Forma de Pago" FontSize="18" TextColor="Black" />
+                    <Picker x:Name="pickerFormaPago" Title="Forma de Pago" ItemDisplayBinding="{Binding for_descri}"/>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Condicion de Venta" FontSize="18" TextColor="Black"/>
+                    <Picker x:Name="pickerCondVta" Title="Condicion de Venta" ItemDisplayBinding="{Binding tip_descri}"/>
+                </StackLayout>
+            </Frame>
+            <Button Text="Comenzar Pedido" x:Name="btnComenzarPedido" Clicked="btnComenzarPedido_Clicked"/>
+            <Label x:Name="codigoFormPago" IsVisible="false"/>
+            <Label x:Name="condVta" IsVisible="false"/>
+            <Label x:Name="codigoCondVta" IsVisible="false"/>
+        </StackLayout>
+    </Frame>
+</ContentPage>
