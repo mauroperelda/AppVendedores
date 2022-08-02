@@ -32,14 +32,18 @@
             </StackLayout>
             <Frame>
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Forma de Pago" FontSize="18" TextColor="Black" />
-                    <Picker x:Name="pickerFormaPago" Title="Forma de Pago" ItemDisplayBinding="{Binding for_descri}"/>
+                    <Label Text="Condicion de Venta" FontSize="18" TextColor="Black" />
+                    <Picker x:Name="pickerFormaPago" Title="Forma de Pago" ItemDisplayBinding="{Binding for_descri}" SelectedIndexChanged="pickerFormaPago_SelectedIndexChanged"/>
+                    <Label IsVisible="false" x:Name="descriFormPago"/>
+                    <Label IsVisible="false" x:Name="codFormPago"/>
                 </StackLayout>
             </Frame>
             <Frame>
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Condicion de Venta" FontSize="18" TextColor="Black"/>
-                    <Picker x:Name="pickerCondVta" Title="Condicion de Venta" ItemDisplayBinding="{Binding tip_descri}"/>
+                    <Label Text="Forma de Pago" FontSize="18" TextColor="Black"/>
+                    <Picker x:Name="pickerCondVta" Title="Condicion de Venta" ItemDisplayBinding="{Binding tip_descri}" SelectedIndexChanged="pickerCondVta_SelectedIndexChanged"/>
+                    <Label IsVisible="false" x:Name="descriCondVta"/>
+                    <Label IsVisible="false" x:Name="codConVta"/>
                 </StackLayout>
             </Frame>
             <Button Text="Comenzar Pedido" x:Name="btnComenzarPedido" Clicked="btnComenzarPedido_Clicked"/>
