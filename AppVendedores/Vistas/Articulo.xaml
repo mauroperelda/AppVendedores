@@ -37,7 +37,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Text="Precio:" Grid.Column="0" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Entry Placeholder="precio" IsReadOnly="True" Grid.Column="1"/>
+            <Entry x:Name="PrecioUnitario" IsReadOnly="True" Grid.Column="1"/>
         </Grid>
 
         <Grid Grid.Row="5">
@@ -66,33 +66,28 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Entry Grid.Row="0" Grid.Column="0" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="0" Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="0" Grid.Column="2" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="0" Grid.Column="3" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="0" Grid.Column="4" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="0" Grid.Column="5" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc1" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc2" Grid.Row="0" Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc3" Grid.Row="0" Grid.Column="2" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc4" Grid.Row="0" Grid.Column="3" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc5" Grid.Row="0" Grid.Column="4" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desc6" Grid.Row="0" Grid.Column="5" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
 
-            <Entry Grid.Row="1" Grid.Column="0" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="1" Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="1" Grid.Column="2" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
-            <Entry Grid.Row="1" Grid.Column="3" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desConda" Grid.Row="1" Grid.Column="0" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desCondb" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desCondc" Grid.Row="1" Grid.Column="2" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="desCondd" Grid.Row="1" Grid.Column="3" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
         </Grid>
 
         <Frame Grid.Row="7" Padding="0" Margin="50,20,50,0" BackgroundColor="#00A7FF" CornerRadius="20">
-            <Button Text="Aceptar" BackgroundColor="#00A7FF"/>
+            <Button x:Name="btnConfArticulo" Text="Aceptar" BackgroundColor="#00A7FF" Clicked="btnConfArticulo_Clicked"/>
         </Frame>
+        <Label x:Name="codtex" IsVisible="false"/>
+        <Label x:Name="codnum" IsVisible="false"/>
+        <Label x:Name="CodCliente" IsVisible="false"/>
+        <Label x:Name="formaPago" IsVisible="false"/>
+        <Label x:Name="condVta" IsVisible="false"/>
+        <Label x:Name="vendedor" IsVisible="false"/>
+        <Label x:Name="descContado" IsVisible="false"/>
     </Grid>
-
-    <!--<StackLayout>
-        <Label Text="Articulo"/>
-        <Entry x:Name="articulo"/>
-        <Label Text="Adicional"/>
-        <Entry x:Name="adicinal"/>
-        <Image x:Name="image"/>
-        <Label Text="Cantidad"/>
-        <Entry x:Name="cantidad"/>
-        <Image x:Name="imgProducto"/>
-    </StackLayout>-->
-
 </ContentPage>
