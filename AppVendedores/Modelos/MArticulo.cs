@@ -24,5 +24,6 @@ namespace AppVendedores.Modelos
         public double art_precmino { get; set; }
         public double art_cn { get; set; }
         public int art_ctacont { get; set; }
+        public string art_medida { get; set; }
     }
 }

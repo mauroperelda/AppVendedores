@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -16,6 +17,8 @@ namespace AppVendedores.Vistas
     public partial class Articulo : ContentPage
     {
         VMPrecio p = new VMPrecio();
+        HttpClient client = new HttpClient();
+        string url = "http://24.232.208.83:8085/Carrito/Post";
         public Articulo()
         {
             InitializeComponent();
@@ -28,10 +31,15 @@ namespace AppVendedores.Vistas
             var deserializeArt = JsonConvert.DeserializeObject<MArticulo>(datosArt);
             articulo.Text = (deserializeArt?.art_descri).ToString();
             adicinal.Text = deserializeArt?.adi_descri.ToString();
-
+            art_cn.Text = deserializeArt?.art_cn.ToString();
             codtex.Text = deserializeArt?.art_codtex.ToString();
             codnum.Text = deserializeArt?.art_codnum.ToString();
             codigo.Text = $"{codtex.Text} - {codnum.Text}";
+            art_aliva.Text = deserializeArt?.art_aliva.ToString();
+            ctacont.Text = deserializeArt?.art_ctacont.ToString();
+            art_medida.Text = deserializeArt?.art_medida?.ToString();
+            art_plista.Text = deserializeArt?.art_preclista.ToString();
+            art_preccosto.Text = deserializeArt?.art_preccosto.ToString();
 
             string path = Convert.ToString(deserializeArt?.imagen);
             imgProducto.Source = path;
@@ -39,6 +47,8 @@ namespace AppVendedores.Vistas
             var datoCliente = Preferences.Get("DatosCliente", "");
             var deseriaCliente = JsonConvert.DeserializeObject<MNuevoPedido>(datoCliente);
             CodCliente.Text = Convert.ToString(deseriaCliente?.cli_codigo);
+            condiva.Text = Convert.ToString(deseriaCliente?.iva_condicion);
+            cli_categoria.Text = Convert.ToString(deseriaCliente?.cli_categoria);
 
             var formapago = Preferences.Get("FormaPago", "");
             var dFormaPago = JsonConvert.DeserializeObject<MFormaPago>(formapago);
@@ -128,17 +138,55 @@ namespace AppVendedores.Vistas
             OnAppearing();
         }
 
+        public void InsertarAlCarrito()
+        {
+            var carrito = new MCarrito
+            {
+                car_terminal = 1,
+                car_fabrica = codtex.Text,
+                car_codnum = Convert.ToInt32(codnum.Text),
+                car_articulo = articulo.Text,
+                car_adicional = adicinal.Text,
+                car_aliva = Convert.ToDouble(art_aliva.Text),
+                car_cantidad = Convert.ToInt32(Cantidad.Text),
+                car_categoria = Convert.ToInt32(cli_categoria.Text),
+                car_cn = Convert.ToDouble(art_cn.Text),
+                car_condiva = Convert.ToInt32(condiva.Text),
+                car_ctacont = Convert.ToInt32(ctacont.Text),
+                car_descuento = descuento,
+                car_dtoa = Convert.ToDouble(desc1.Text),
+                car_dtob = Convert.ToDouble(desc2.Text),
+                car_dtoc = Convert.ToDouble(desc3.Text),
+                car_dtod = Convert.ToDouble(desc4.Text),
+                car_dtoe = Convert.ToDouble(desc5.Text),
+                car_dtof = Convert.ToDouble(desc6.Text),
+                car_dtoCondA = Convert.ToDouble(desConda.Text),
+                car_dtoCondB = Convert.ToDouble(desCondb.Text),
+                car_dtoCondC = Convert.ToDouble(desCondc.Text),
+                car_dtoCondD = Convert.ToDouble(desCondd.Text),
+                car_dtoctdo = Convert.ToDouble(descContado.Text),
+                car_medida = art_medida.Text,
+                car_oferta = 1,
+                car_orden = 10,
+                car_plista = Convert.ToDouble(art_plista.Text),
+                car_preccosto = Convert.ToDouble(art_preccosto.Text),
+                car_punitario = PU,
+                car_total = PrecioFinal,
+                car_usuario = Convert.ToInt32(vendedor.Text)
+            };
+        }
         private void btnConfArticulo_Clicked(object sender, EventArgs e)
         {
-            if (Cantidad.Text != null)
-            {
-                CalcularPrecioTotal();
-                DisplayAlert("Precio final con descuentos y/o recargos", +PrecioFinal + "", "OK");
-            }
-            else
-            {
-                DisplayAlert("Advertencia", "Ingrese la cantidad del articulo", "OK");
-            }
+
+            //if (Cantidad.Text != null)
+            //{
+            //    CalcularPrecioTotal();
+            //    DisplayAlert("Precio final con descuentos y/o recargos", +PrecioFinal + "", "OK");
+            //}
+            //else
+            //{
+            //    DisplayAlert("Advertencia", "Ingrese la cantidad del articulo", "OK");
+            //}
 
         }
     }

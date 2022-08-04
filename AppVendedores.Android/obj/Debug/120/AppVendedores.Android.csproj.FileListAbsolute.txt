@@ -1912,3 +1912,4 @@ C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores.Android\
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores.Android\obj\Debug\120\res\drawable\carritoblanco.png

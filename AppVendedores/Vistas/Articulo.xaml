@@ -89,5 +89,13 @@
         <Label x:Name="condVta" IsVisible="false"/>
         <Label x:Name="vendedor" IsVisible="false"/>
         <Label x:Name="descContado" IsVisible="false"/>
+        <Label x:Name="art_cn" IsVisible="false"/>
+        <Label x:Name="art_aliva" IsVisible="false"/>
+        <Label x:Name="condiva" IsVisible="false"/>
+        <Label x:Name="ctacont" IsVisible="false"/>
+        <Label x:Name="art_medida" IsVisible="false"/>
+        <Label x:Name="art_plista" IsVisible="false"/>
+        <Label x:Name="art_preccosto" IsVisible="false"/>
+        <Label x:Name="cli_categoria" IsVisible="false"/>
     </Grid>
 </ContentPage>

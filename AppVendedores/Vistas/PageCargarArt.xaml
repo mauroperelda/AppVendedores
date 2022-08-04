@@ -8,6 +8,9 @@
     <ContentPage.BindingContext>
         <vmNuevoPedido:VMNuevoPedido/>
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnCarrito" IconImageSource="carritoblanco" Clicked="btnCarrito_Clicked"/>
+    </ContentPage.ToolbarItems>
 
     <StackLayout>
         <Grid RowDefinitions="60,*">

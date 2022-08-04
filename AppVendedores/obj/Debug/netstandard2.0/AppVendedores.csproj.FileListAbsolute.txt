@@ -73,3 +73,4 @@ C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debu
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\refint\AppVendedores.dll
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\AppVendedores.pdb
 C:\Users\Valentin\Desktop\Nueva carpeta (3)\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\ref\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\Carrito.xaml.g.cs

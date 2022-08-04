@@ -43,5 +43,10 @@ namespace AppVendedores.Vistas
                 Navigation.PushAsync(new Articulo());
             }
         }
+
+        private void btnCarrito_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Carrito());
+        }
     }
 }
