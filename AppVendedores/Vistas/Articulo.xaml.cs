@@ -57,6 +57,7 @@ namespace AppVendedores.Vistas
             var PrecioYDesc = Preferences.Get("PrecioYDescuentos", "");
             var deseriaPrecio = JsonConvert.DeserializeObject<MPrecio>(PrecioYDesc);
             PrecioUnitario.Text = Convert.ToString(deseriaPrecio?.PrecioUnitario);
+            PU = Convert.ToDouble(deseriaPrecio?.PrecioUnitario);
             desc1.Text = Convert.ToString(deseriaPrecio?.desc1);
             desc2.Text = Convert.ToString(deseriaPrecio?.desc2);
             desc3.Text = Convert.ToString(deseriaPrecio?.desc3);
@@ -73,6 +74,7 @@ namespace AppVendedores.Vistas
         double total;
         double descuento;
         double PrecioFinal;
+        double PU;
         public void CalcularPrecioTotal()
         {
             total = Convert.ToDouble(PrecioUnitario.Text);
@@ -93,8 +95,14 @@ namespace AppVendedores.Vistas
 
             descuento = total - Convert.ToDouble(PrecioUnitario.Text);
 
-            PrecioFinal = total * Convert.ToDouble(Cantidad.Text);
+            PrecioFinal = total;
             PrecioFinal = Convert.ToDouble(PrecioFinal.ToString("0.##")); //FORMATEO EL NUMERO FINAL CON 2 DECIMALES
+            
+        }
+
+        protected override void OnAppearing()
+        {
+            PrecioUnitario.Text = Convert.ToString(PU * Convert.ToDouble(Cantidad.Text));
         }
         private void btnMenos_Clicked(object sender, EventArgs e)
         {
@@ -103,6 +111,7 @@ namespace AppVendedores.Vistas
             if (cantidadTotal >= 0)
             {
                 Cantidad.Text = cantidadTotal.ToString();
+                OnAppearing();
             }
             else
             {
@@ -116,11 +125,21 @@ namespace AppVendedores.Vistas
             double cantidadTotal = Convert.ToDouble(Cantidad.Text);
             cantidadTotal = cantidadTotal + 1;
             Cantidad.Text = cantidadTotal.ToString();
+            OnAppearing();
         }
 
         private void btnConfArticulo_Clicked(object sender, EventArgs e)
         {
-            CalcularPrecioTotal();
+            if (Cantidad.Text != null)
+            {
+                CalcularPrecioTotal();
+                DisplayAlert("Precio final con descuentos y/o recargos", +PrecioFinal + "", "OK");
+            }
+            else
+            {
+                DisplayAlert("Advertencia", "Ingrese la cantidad del articulo", "OK");
+            }
+
         }
     }
 }

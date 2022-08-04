@@ -42,48 +42,48 @@ map_aname.7:
 
 	.type	map_aname.8, %object
 map_aname.8:
-	.asciz	"Xamarin.AndroidX.Core"
+	.asciz	"AppVendedores.Android"
 	.size	map_aname.8, 22
 
 	.type	map_aname.9, %object
 map_aname.9:
-	.asciz	"Xamarin.AndroidX.AppCompat.AppCompatResources"
-	.size	map_aname.9, 46
+	.asciz	"Xamarin.AndroidX.Core"
+	.size	map_aname.9, 22
 
 	.type	map_aname.10, %object
 map_aname.10:
-	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
-	.size	map_aname.10, 41
+	.asciz	"Xamarin.AndroidX.AppCompat.AppCompatResources"
+	.size	map_aname.10, 46
 
 	.type	map_aname.11, %object
 map_aname.11:
-	.asciz	"Xamarin.AndroidX.Legacy.Support.Core.UI"
-	.size	map_aname.11, 40
+	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
+	.size	map_aname.11, 41
 
 	.type	map_aname.12, %object
 map_aname.12:
-	.asciz	"Xamarin.AndroidX.SavedState"
-	.size	map_aname.12, 28
+	.asciz	"Xamarin.AndroidX.Legacy.Support.Core.UI"
+	.size	map_aname.12, 40
 
 	.type	map_aname.13, %object
 map_aname.13:
-	.asciz	"Xamarin.Google.Android.Material"
-	.size	map_aname.13, 32
+	.asciz	"Xamarin.AndroidX.SavedState"
+	.size	map_aname.13, 28
 
 	.type	map_aname.14, %object
 map_aname.14:
-	.asciz	"Xamarin.AndroidX.DrawerLayout"
-	.size	map_aname.14, 30
+	.asciz	"Xamarin.Google.Android.Material"
+	.size	map_aname.14, 32
 
 	.type	map_aname.15, %object
 map_aname.15:
-	.asciz	"Xamarin.AndroidX.RecyclerView"
+	.asciz	"Xamarin.AndroidX.DrawerLayout"
 	.size	map_aname.15, 30
 
 	.type	map_aname.16, %object
 map_aname.16:
-	.asciz	"AppVendedores.Android"
-	.size	map_aname.16, 22
+	.asciz	"Xamarin.AndroidX.RecyclerView"
+	.size	map_aname.16, 30
 
 	.type	map_aname.17, %object
 map_aname.17:

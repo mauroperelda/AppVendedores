@@ -18,3 +18,5 @@ C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Releas
 C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Release\netstandard2.0\refint\AppVendedores.dll
 C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Release\netstandard2.0\AppVendedores.pdb
 C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Release\netstandard2.0\ref\AppVendedores.dll
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Release\netstandard2.0\Vistas\Articulo.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Release\netstandard2.0\Vistas\PageCargarArt.xaml.g.cs
