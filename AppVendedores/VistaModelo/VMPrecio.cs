@@ -3,14 +3,20 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace AppVendedores.VistaModelo
 {
     public class VMPrecio : BaseViewModel
     {
+        public static string ipUrl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+        public static string URL = File.ReadAllText(ipUrl);
+        public static string term = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "terminal.txt");
+        public static int terminal = Convert.ToInt32(File.ReadAllText(term));
         HttpClient cliente = new HttpClient();
         private ObservableCollection<MPrecio> _listaPrecio;
         public ObservableCollection<MPrecio> ListaPrecio 
@@ -19,12 +25,13 @@ namespace AppVendedores.VistaModelo
             set { _listaPrecio = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<MPrecio> GetPrecio(string art_codtex, int art_codnum, int formaPago, int cli_codigo, double cantidad, int cod_usuario, int condvta)
+        public async Task<ObservableCollection<MPrecio>> GetPrecioAsync(string art_codtex, int art_codnum, int formaPago, int cli_codigo, double cantidad, int cod_usuario, int condvta)
         {
             ListaPrecio = new ObservableCollection<MPrecio>();
             try
             {
-                string url = "http://24.232.208.83:8085/Precio/"+art_codtex+"/"+art_codnum+"/"+formaPago+"/"+cli_codigo+"/"+cantidad+"/"+cod_usuario+"/"+condvta+"";
+                URL = URL.Replace('\n', '/');
+                string url = ""+URL+"Precio/"+art_codtex+"/"+art_codnum+"/"+formaPago+"/"+cli_codigo+"/"+cantidad+"/"+cod_usuario+"/"+condvta+"";
                 HttpResponseMessage request = cliente.GetAsync(url).Result;
                 if (request.IsSuccessStatusCode)
                 {
@@ -56,13 +63,17 @@ namespace AppVendedores.VistaModelo
                     }
                     else
                     {
-                        DisplayAlert("Advertencia", "Error al calcular precio", "OK");
+                        await DisplayAlert("Advertencia", "Error al calcular precio", "OK");
                     }
+                }
+                else
+                {
+                    await DisplayAlert("Error", ""+request.Headers, "OK");
                 }
             }
             catch (Exception ex)
             {
-                DisplayAlert("Mensaje", "" + ex.Message, "OK");
+                await DisplayAlert("Mensaje", "" + ex.Message, "OK");
             }
             return ListaPrecio;
         }

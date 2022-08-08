@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
@@ -13,6 +14,10 @@ namespace AppVendedores.VistaModelo
 {
     public class VMLogin : BaseViewModel
     {
+        public static string ipUrl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+        public static string URL = File.ReadAllText(ipUrl);
+        public static string term = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "terminal.txt");
+        public static int terminal = Convert.ToInt32(File.ReadAllText(term));
         HttpClient cliente = new HttpClient();
         private ObservableCollection<MLogin> listaUsuarios;
         public ObservableCollection<MLogin> ListaUsuarios
@@ -28,7 +33,8 @@ namespace AppVendedores.VistaModelo
             ListaUsuarios = new ObservableCollection<MLogin>();
             try
             {
-                string url = "http://24.232.208.83:8085/Usuario/" + login + "/" + pass + "";
+                URL = URL.Replace('\n','/');
+                string url = ""+URL+"Usuario/" + login + "/" + pass + "";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {

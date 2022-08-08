@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
@@ -12,6 +13,10 @@ namespace AppVendedores.VistaModelo
 {
     public class VMNuevoPedido : BaseViewModel
     {
+        public static string ipUrl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+        public static string URL = File.ReadAllText(ipUrl);
+        public static string term = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "terminal.txt");
+        public static int terminal = Convert.ToInt32(File.ReadAllText(term));
         HttpClient cliente = new HttpClient();
         private ObservableCollection<MNuevoPedido> _listaClientes;
         public ObservableCollection<MNuevoPedido> ListaClientes
@@ -36,7 +41,8 @@ namespace AppVendedores.VistaModelo
             ListaClientes = new ObservableCollection<MNuevoPedido>();
             try
             {
-                string url = "http://24.232.208.83:8085/Clientes/"+cli_nombre+"";
+                URL = URL.Replace('\n', '/');
+                string url = ""+URL+"Clientes/"+cli_nombre+"";
                 HttpResponseMessage request = cliente.GetAsync(url).Result;
                 if (request.IsSuccessStatusCode)
                 {
@@ -58,7 +64,9 @@ namespace AppVendedores.VistaModelo
                                 cli_formpag = item.cli_formpag,
                                 cli_condvta = item.cli_condvta,
                                 cuit = item.cuit,
-                                tip_descri = item.tip_descri
+                                tip_descri = item.tip_descri,
+                                cli_categoria = item.cli_categoria,
+                                iva_codigo = item.iva_codigo
                             };
                             ListaClientes.Add(Npedido);
                         }
@@ -80,7 +88,8 @@ namespace AppVendedores.VistaModelo
             FormaPago = new ObservableCollection<MFormaPago>();
             try
             {
-                string url = "http://24.232.208.83:8085/FormaPago";
+                URL = URL.Replace('\n', '/');
+                string url = ""+URL+"FormaPago";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {
@@ -115,7 +124,8 @@ namespace AppVendedores.VistaModelo
             Condvta = new ObservableCollection<MCondVenta>();
             try
             {
-                string url = "http://24.232.208.83:8085/CondicionVenta";
+                URL = URL.Replace('\n', '/');
+                string url = ""+URL+"CondicionVenta";
                 HttpResponseMessage req = cliente.GetAsync(url).Result;
                 if (req.IsSuccessStatusCode)
                 {

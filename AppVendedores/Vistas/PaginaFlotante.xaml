@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False"
              Title="Flayout">
     <ContentPage.Content>
-        <Grid RowDefinitions="60,60,60" BackgroundColor="SlateGray">
+        <Grid RowDefinitions="60,60,60,60" BackgroundColor="SlateGray">
             <Button Text="Nuevo Pedido" TextColor="Black" x:Name="btnNuevoPedido" 
                     BackgroundColor="White" Image="mas.png"
                     HorizontalOptions="FillAndExpand" Grid.Row="0" Clicked="btnNuevoPedido_Clicked"/>
@@ -15,6 +15,8 @@
             <Button Text="Devoluciones" TextColor="Black" x:Name="btnDevoluciones" 
                     BackgroundColor="White" Image="mas.png"
                     HorizontalOptions="FillAndExpand" Grid.Row="2" Clicked="btnDevoluciones_Clicked"/>
+            <Button Text="Configurar Conexion" TextColor="Black" x:Name="btnConfigConexion" BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand" Grid.Row="3" Clicked="btnConfigConexion_Clicked" Image="Config.png"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

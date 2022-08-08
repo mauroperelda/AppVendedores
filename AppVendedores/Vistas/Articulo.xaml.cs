@@ -3,7 +3,9 @@ using AppVendedores.VistaModelo;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +18,17 @@ namespace AppVendedores.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Articulo : ContentPage
     {
+        public static string ipUrl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+        public string URL = File.ReadAllText(ipUrl);
+        public static string term = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "terminal.txt");
+        public int terminal = Convert.ToInt32(File.ReadAllText(term));
         VMPrecio p = new VMPrecio();
         HttpClient client = new HttpClient();
-        string url = "http://24.232.208.83:8085/Carrito/Post";
+        string url;
+        double total;
+        double descuento;
+        double PrecioFinal;
+        double PU;
         public Articulo()
         {
             InitializeComponent();
@@ -30,7 +40,7 @@ namespace AppVendedores.Vistas
             var datosArt = Preferences.Get("DatosArticulo", "");
             var deserializeArt = JsonConvert.DeserializeObject<MArticulo>(datosArt);
             articulo.Text = (deserializeArt?.art_descri).ToString();
-            adicinal.Text = deserializeArt?.adi_descri.ToString();
+            adicinal.Text = deserializeArt?.adi_codigo.ToString();
             art_cn.Text = deserializeArt?.art_cn.ToString();
             codtex.Text = deserializeArt?.art_codtex.ToString();
             codnum.Text = deserializeArt?.art_codnum.ToString();
@@ -47,7 +57,7 @@ namespace AppVendedores.Vistas
             var datoCliente = Preferences.Get("DatosCliente", "");
             var deseriaCliente = JsonConvert.DeserializeObject<MNuevoPedido>(datoCliente);
             CodCliente.Text = Convert.ToString(deseriaCliente?.cli_codigo);
-            condiva.Text = Convert.ToString(deseriaCliente?.iva_condicion);
+            condiva.Text = Convert.ToString(deseriaCliente?.iva_codigo);
             cli_categoria.Text = Convert.ToString(deseriaCliente?.cli_categoria);
 
             var formapago = Preferences.Get("FormaPago", "");
@@ -62,7 +72,7 @@ namespace AppVendedores.Vistas
             var dVendedor = JsonConvert.DeserializeObject<MLogin>(vend);
             vendedor.Text = Convert.ToString(dVendedor?.usu_codigo);
 
-            p.GetPrecio(codtex.Text,Convert.ToInt32(codnum.Text), Convert.ToInt32(formaPago.Text), Convert.ToInt32(CodCliente.Text),Convert.ToDouble(Cantidad.Text), Convert.ToInt32(vendedor.Text), Convert.ToInt32(condVta.Text));
+            p.GetPrecioAsync(codtex.Text,Convert.ToInt32(codnum.Text), Convert.ToInt32(formaPago.Text), Convert.ToInt32(CodCliente.Text),Convert.ToDouble(Cantidad.Text), Convert.ToInt32(vendedor.Text), Convert.ToInt32(condVta.Text));
 
             var PrecioYDesc = Preferences.Get("PrecioYDescuentos", "");
             var deseriaPrecio = JsonConvert.DeserializeObject<MPrecio>(PrecioYDesc);
@@ -81,10 +91,7 @@ namespace AppVendedores.Vistas
             descContado.Text = Convert.ToString(deseriaPrecio?.descContado);
         }
 
-        double total;
-        double descuento;
-        double PrecioFinal;
-        double PU;
+
         public void CalcularPrecioTotal()
         {
             total = Convert.ToDouble(PrecioUnitario.Text);
@@ -103,8 +110,9 @@ namespace AppVendedores.Vistas
             //DESCUENTO SI ES DE CONTADO
             total = total + (total * (Convert.ToDouble(descContado.Text) / 100));
 
+            total = Convert.ToDouble(total.ToString("0.##"));
             descuento = total - Convert.ToDouble(PrecioUnitario.Text);
-
+            descuento = Convert.ToDouble(descuento.ToString("0.##"));
             PrecioFinal = total;
             PrecioFinal = Convert.ToDouble(PrecioFinal.ToString("0.##")); //FORMATEO EL NUMERO FINAL CON 2 DECIMALES
             
@@ -138,22 +146,21 @@ namespace AppVendedores.Vistas
             OnAppearing();
         }
 
-        public void InsertarAlCarrito()
+        public async void InsertarAlCarrito()
         {
-            var carrito = new MCarrito
+            URL = URL.Replace('\n', '/');
+            url = "" + URL + "Carrito/Post";
+            MCarrito car = new MCarrito
             {
-                car_terminal = 1,
+                car_terminal = terminal,
                 car_fabrica = codtex.Text,
                 car_codnum = Convert.ToInt32(codnum.Text),
                 car_articulo = articulo.Text,
-                car_adicional = adicinal.Text,
                 car_aliva = Convert.ToDouble(art_aliva.Text),
-                car_cantidad = Convert.ToInt32(Cantidad.Text),
-                car_categoria = Convert.ToInt32(cli_categoria.Text),
-                car_cn = Convert.ToDouble(art_cn.Text),
-                car_condiva = Convert.ToInt32(condiva.Text),
-                car_ctacont = Convert.ToInt32(ctacont.Text),
+                car_cantidad = Convert.ToDouble(Cantidad.Text),
+                car_punitario = PU,
                 car_descuento = descuento,
+                car_total = PrecioFinal,
                 car_dtoa = Convert.ToDouble(desc1.Text),
                 car_dtob = Convert.ToDouble(desc2.Text),
                 car_dtoc = Convert.ToDouble(desc3.Text),
@@ -165,29 +172,34 @@ namespace AppVendedores.Vistas
                 car_dtoCondC = Convert.ToDouble(desCondc.Text),
                 car_dtoCondD = Convert.ToDouble(desCondd.Text),
                 car_dtoctdo = Convert.ToDouble(descContado.Text),
-                car_medida = art_medida.Text,
-                car_oferta = 1,
-                car_orden = 10,
                 car_plista = Convert.ToDouble(art_plista.Text),
                 car_preccosto = Convert.ToDouble(art_preccosto.Text),
-                car_punitario = PU,
-                car_total = PrecioFinal,
-                car_usuario = Convert.ToInt32(vendedor.Text)
+                car_cn = Convert.ToDouble(art_cn.Text),
+                car_usuario = Convert.ToInt32(vendedor.Text),
+                car_adicional = adicinal.Text,
+                car_oferta = 1,
+                car_ctacont = Convert.ToInt32(ctacont.Text),
+                car_categoria = Convert.ToInt32(cli_categoria.Text),
+                car_condiva = Convert.ToInt32(condiva.Text),
+                car_medida = art_medida.Text,
+                car_ctacli = Convert.ToInt32(CodCliente.Text)
             };
+            var json = JsonConvert.SerializeObject(car);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(url, content);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                await DisplayAlert("Mensaje", "Articulo agregado al carrito", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Mensaje", "Error al agregar articulo", "OK");
+            }
         }
         private void btnConfArticulo_Clicked(object sender, EventArgs e)
         {
-
-            //if (Cantidad.Text != null)
-            //{
-            //    CalcularPrecioTotal();
-            //    DisplayAlert("Precio final con descuentos y/o recargos", +PrecioFinal + "", "OK");
-            //}
-            //else
-            //{
-            //    DisplayAlert("Advertencia", "Ingrese la cantidad del articulo", "OK");
-            //}
-
+            CalcularPrecioTotal();
+            InsertarAlCarrito();
         }
     }
 }

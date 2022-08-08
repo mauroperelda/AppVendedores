@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 
@@ -10,6 +11,10 @@ namespace AppVendedores.VistaModelo
 {
     public class VMBuscarArticulo : BaseViewModel
     {
+        public static string ipUrl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+        public static string URL = File.ReadAllText(ipUrl);
+        public static string term = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "terminal.txt");
+        public static int terminal = Convert.ToInt32(File.ReadAllText(term));
         HttpClient cliente = new HttpClient();
         private ObservableCollection<MArticulo> _listaArticulos;
         public ObservableCollection<MArticulo> ListaArticulos
@@ -23,7 +28,8 @@ namespace AppVendedores.VistaModelo
             ListaArticulos = new ObservableCollection<MArticulo>();
             try
             {
-                string url = "http://24.232.208.83:8085/Articulos/" + descripcion + "";
+                URL = URL.Replace('\n', '/');
+                string url = ""+URL+"Articulos/" + descripcion + "";
                 HttpResponseMessage request = cliente.GetAsync(url).Result;
                 if (request.IsSuccessStatusCode)
                 {
@@ -52,7 +58,8 @@ namespace AppVendedores.VistaModelo
                                 art_precmayo = item.art_precmayo,
                                 art_precmino = item.art_precmino,
                                 art_precventa = item.art_precventa,
-                                art_ctacont = item.art_ctacont
+                                art_ctacont = item.art_ctacont,
+                                art_medida = item.art_medida
                             };
                             ListaArticulos.Add(NArticulo);
                         }
