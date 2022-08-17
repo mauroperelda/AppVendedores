@@ -12,12 +12,15 @@ using System.Data;
 //using Newtonsoft.Json;
 using Xamarin.Essentials;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace Ubicacion_Articulos.Vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PedidoIP : ContentPage
     {
+        public static string URL;
+        HttpClient cliente = new HttpClient();
         public PedidoIP()
         {
             InitializeComponent();            
@@ -36,20 +39,36 @@ namespace Ubicacion_Articulos.Vistas
             {
                 terminalDispositivo();
                 IpServidor();
-                await DisplayAlert("Mensaje", "Conexion Lista, vuelva a ingresar a la app", "Ok");
-                Process.GetCurrentProcess().CloseMainWindow();
+                ComprobarTerminal();
             }
             else
             {
                 await DisplayAlert("Ingrese la Conexion", "Se requieren Datos", "OK");
             }
         }
-
+        
+        public async void ComprobarTerminal()
+        {
+            var numSerie = DeviceInfo.Name;
+            URL = URL.Replace('\n', '/');
+            string url = ""+URL+"Terminal/"+terminal.Text+"/"+numSerie+"";
+            HttpResponseMessage response = cliente.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Mensaje", "Conexion Lista, vuelva a ingresar a la app", "Ok");
+                Process.GetCurrentProcess().CloseMainWindow();
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Debe poner otro numero de terminal", "OK");
+            }
+        }
 
 
         private void IpServidor()
         {
             ip = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+            //URL = File.ReadAllText(ip);
             FileInfo file = new FileInfo(ip);
             StreamWriter sw;
             string url = "http://"+txturl.Text+"";
@@ -90,7 +109,7 @@ namespace Ubicacion_Articulos.Vistas
                     sw.Flush(); //Guardo el archivo
                     sw.Close(); //Cierro el archivo
                 }
-                else if (File.Exists(ruta) == true)
+                else if (File.Exists(term) == true)
                 {
                     File.Delete(term); //Elimino el archivo
                     sw = File.CreateText(term);

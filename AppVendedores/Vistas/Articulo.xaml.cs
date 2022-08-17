@@ -51,8 +51,8 @@ namespace AppVendedores.Vistas
             art_plista.Text = deserializeArt?.art_preclista.ToString();
             art_preccosto.Text = deserializeArt?.art_preccosto.ToString();
 
-            string path = Convert.ToString(deserializeArt?.imagen);
-            imgProducto.Source = path;
+            imagenArt.Text = Convert.ToString(deserializeArt?.imagen);
+            imgProducto.Source = imagenArt.Text;
 
             var datoCliente = Preferences.Get("DatosCliente", "");
             var deseriaCliente = JsonConvert.DeserializeObject<MNuevoPedido>(datoCliente);
@@ -115,7 +115,6 @@ namespace AppVendedores.Vistas
             descuento = Convert.ToDouble(descuento.ToString("0.##"));
             PrecioFinal = total;
             PrecioFinal = Convert.ToDouble(PrecioFinal.ToString("0.##")); //FORMATEO EL NUMERO FINAL CON 2 DECIMALES
-            
         }
 
         protected override void OnAppearing()
@@ -182,7 +181,8 @@ namespace AppVendedores.Vistas
                 car_categoria = Convert.ToInt32(cli_categoria.Text),
                 car_condiva = Convert.ToInt32(condiva.Text),
                 car_medida = art_medida.Text,
-                car_ctacli = Convert.ToInt32(CodCliente.Text)
+                car_ctacli = Convert.ToInt32(CodCliente.Text),
+                car_imagen = imagenArt.Text,
             };
             var json = JsonConvert.SerializeObject(car);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

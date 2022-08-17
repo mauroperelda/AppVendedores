@@ -38,5 +38,6 @@ namespace AppVendedores.Modelos
         public int car_condiva { get; set; }
         public string car_medida { get; set; }
         public int car_ctacli { get; set; }
+        public string car_imagen { get; set; }
     }
 }

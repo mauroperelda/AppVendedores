@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +15,8 @@ namespace AppVendedores.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PedidoIP2 : ContentPage
     {
+        public static string URL;
+        HttpClient cliente = new HttpClient();
         public PedidoIP2(string url, int term)
         {
             InitializeComponent();
@@ -35,8 +38,7 @@ namespace AppVendedores.Vistas
             {
                 terminalDispositivo();
                 IpServidor();
-                await DisplayAlert("Mensaje", "Conexion Lista, vuelva a ingresar a la app", "Ok");
-                Process.GetCurrentProcess().CloseMainWindow();
+                ComprobarTerminal();
             }
             else
             {
@@ -44,9 +46,26 @@ namespace AppVendedores.Vistas
             }
         }
 
+        public async void ComprobarTerminal()
+        {
+            var numSerie = DeviceInfo.Name;
+            URL = URL.Replace('\n', '/');
+            string url = "" + URL + "Terminal/" + terminal.Text + "/" + numSerie + "";
+            HttpResponseMessage response = cliente.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Mensaje", "Conexion Lista, vuelva a ingresar a la app", "Ok");
+                Process.GetCurrentProcess().CloseMainWindow();
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Debe poner otro numero de terminal", "OK");
+            }
+        }
         private void IpServidor()
         {
             ip = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "url.txt");
+            URL = File.ReadAllText(ip);
             FileInfo file = new FileInfo(ip);
             StreamWriter sw;
             string url = "http://" + txturl.Text + "";
@@ -87,7 +106,7 @@ namespace AppVendedores.Vistas
                     sw.Flush(); //Guardo el archivo
                     sw.Close(); //Cierro el archivo
                 }
-                else if (File.Exists(ruta) == true)
+                else if (File.Exists(term) == true)
                 {
                     File.Delete(term); //Elimino el archivo
                     sw = File.CreateText(term);

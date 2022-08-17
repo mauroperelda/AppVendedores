@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
 using System.Text;
+using Xamarin.Essentials;
 
 namespace AppVendedores.VistaModelo
 {
@@ -23,6 +24,122 @@ namespace AppVendedores.VistaModelo
             set { _auxCarrito = value; OnPropertyChanged(); }
         }
 
+        double iva2 = 0;
+        double subtotal2 = 0;
+        double iva5 = 0;
+        double subtotal5 = 0;
+        double iva105 = 0;
+        double subtotal105 = 0;
+        double iva21 = 0;
+        double subtotal21 = 0;
+        double iva27 = 0;
+        double subtotal27 = 0;
+        double exento = 0;
+        double cf = 0;
+        double monotributo = 0;
+        double tsubtotal = 0;
+        double total = 0;
+        double TOTAL = 0;
+        private void CalcularSubtotal(double precTotal, double iva, double cantidad)
+        {
+            var datosCliente = Preferences.Get("DatosCliente", "");
+            var Cliente = JsonConvert.DeserializeObject<MNuevoPedido>(datosCliente);
+
+            double precioUnitario = precTotal;
+            double ivaArticulo = iva;
+            int condIva = Convert.ToInt32(Cliente.iva_codigo);
+            //total += precioUnitario * cantidad;
+
+            if (condIva == 1)//RI
+            {
+                double subtotal = 0;
+                if (ivaArticulo == 10.5)
+                {
+                    string dato = 1 + "," + 105;
+                    total = precioUnitario * (Convert.ToDouble(dato));
+                    subtotal = precioUnitario;
+                    iva105 += Convert.ToDouble((total - subtotal).ToString("0.##"));
+                    subtotal105 += Convert.ToDouble(subtotal.ToString("0.##"));
+                    tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                    TOTAL += Convert.ToDouble(total.ToString("0.##"));
+                }
+                else if (ivaArticulo == 21)
+                {
+                    string dato = 1 + "," + 21;
+                    total = precioUnitario * (Convert.ToDouble(dato));
+                    subtotal = precioUnitario;
+                    iva21 += Convert.ToDouble((total - subtotal).ToString("0.##"));
+                    subtotal21 += Convert.ToDouble(subtotal.ToString("0.##"));
+                    tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                    TOTAL += Convert.ToDouble(total.ToString("0.##"));
+                }
+                else if (ivaArticulo == 27)
+                {
+                    string dato = 1 + "," + 27;
+                    total = precioUnitario * (Convert.ToDouble(dato));
+                    subtotal = precioUnitario;
+                    iva27 += Convert.ToDouble((precioUnitario - subtotal).ToString("0.##"));
+                    subtotal27 += Convert.ToDouble(subtotal.ToString("0.##"));
+                    tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                    TOTAL += Convert.ToDouble(total.ToString("0.##"));
+                }
+                else if (ivaArticulo == 5)
+                {
+                    string dato = 1 + "," + 5;
+                    total = precioUnitario * (Convert.ToDouble(dato));
+                    subtotal = precioUnitario;
+                    iva5 += Convert.ToDouble((precioUnitario - subtotal).ToString("0.##"));
+                    subtotal5 += Convert.ToDouble(subtotal.ToString("0.##"));
+                    tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                    TOTAL += Convert.ToDouble(total.ToString("0.##"));
+                }
+                else if (ivaArticulo == 2.5)
+                {
+                    string dato = 1 + "," + 2.5;
+                    total = precioUnitario * (Convert.ToDouble(dato));
+                    subtotal = precioUnitario;
+                    iva2 += Convert.ToDouble((precioUnitario - subtotal).ToString("0.##"));
+                    subtotal2 += Convert.ToDouble(subtotal.ToString("0.##"));
+                    tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                    TOTAL += Convert.ToDouble(total.ToString("0.##"));
+                }
+                else
+                {
+
+                }
+            }
+            else if (condIva == 2 || condIva == 6) //MONOT
+            {
+                double subtotal = 0;
+                subtotal = precioUnitario;
+                monotributo += Convert.ToDouble(subtotal.ToString("0.##"));
+                tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                TOTAL += Convert.ToDouble(subtotal.ToString("0.##"));
+            }
+            else if (condIva == 3) //CONSUMIDOR FINAL
+            {
+                double subtotal = 0;
+                subtotal = precioUnitario;
+                cf += tsubtotal;
+                tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                TOTAL += Convert.ToDouble(subtotal.ToString("0.##"));
+            }
+            else if (condIva == 4)//EXENTO
+            {
+                double subtotal = 0;
+                subtotal = precioUnitario;
+                exento += tsubtotal;
+                tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                TOTAL += Convert.ToDouble(subtotal.ToString("0.##"));
+            }
+            else
+            {
+                double subtotal = 0;
+                subtotal = precioUnitario;
+                tsubtotal += Convert.ToDouble(subtotal.ToString("0.##"));
+                TOTAL += Convert.ToDouble(subtotal.ToString("0.##"));
+            }
+        }
         public ObservableCollection<MCarrito> GetAuxCarrito(int vendedor, int terminal, int client)
         {
             AuxCarrito = new ObservableCollection<MCarrito>();
@@ -71,9 +188,16 @@ namespace AppVendedores.VistaModelo
                                 car_preccosto = item.car_preccosto,
                                 car_punitario = item.car_punitario,
                                 car_total = item.car_total,
-                                car_usuario = item.car_usuario
+                                car_usuario = item.car_usuario,
+                                car_imagen = item.car_imagen
                             };
+                            CalcularSubtotal(item.car_total, item.car_aliva,item.car_cantidad);
                             AuxCarrito.Add(carrito);
+                            var serialize = JsonConvert.SerializeObject(AuxCarrito[0]);
+                            if (serialize != null)
+                            {
+                                Preferences.Set("listaCarrito",serialize);
+                            }
                         }
                     }
                 }
@@ -85,6 +209,12 @@ namespace AppVendedores.VistaModelo
             catch (Exception ex)
             {
                 DisplayAlert("Mensaje", "" + ex.Message, "OK");
+            }
+            string datos = $"{iva2};{subtotal2};{iva5};{subtotal5};{iva105};{subtotal105};{iva21};{subtotal21};{iva27};{subtotal27};{exento};{tsubtotal};{TOTAL}";
+            var serializ = JsonConvert.SerializeObject(datos);
+            if (serializ != null)
+            {
+                Preferences.Set("Totales", serializ);
             }
             return AuxCarrito;
         }

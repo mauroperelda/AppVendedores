@@ -23,6 +23,15 @@ namespace AppVendedores.Modelos
         public string tip_descri { get; set; }
         public int cli_categoria { get; set; }
         public string cat_descri { get; set; }
-
+        public int cli_codpos1 { get; set; }
+        public int cli_codpos2 { get; set; }
+        public string cli_cuit1 { get; set; }
+        public string cli_cuit2 { get; set; }
+        public string cli_cuit3 { get; set; }
+        public string cli_ingbru { get; set; }
+        public string cli_transporte { get; set; }
+        public int cli_zona { get; set; }
+        public int cli_actividad { get; set; }
+        public string cli_lisp { get; set; }
     }
 }

@@ -97,5 +97,6 @@
         <Label x:Name="art_plista" IsVisible="false"/>
         <Label x:Name="art_preccosto" IsVisible="false"/>
         <Label x:Name="cli_categoria" IsVisible="false"/>
+        <Label x:Name="imagenArt" IsVisible="false"/>
     </Grid>
 </ContentPage>

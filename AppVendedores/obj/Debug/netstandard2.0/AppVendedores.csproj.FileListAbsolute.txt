@@ -100,3 +100,4 @@ C:\Users\Valentin\Desktop\AppVendedores\AppVendedores\AppVendedores\obj\Debug\ne
 C:\Users\Valentin\Desktop\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\ref\AppVendedores.dll
 C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PedidoIP.xaml.g.cs
 C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\PedidoIP2.xaml.g.cs
+C:\Users\Mauro\source\repos\AppVendedores\AppVendedores\AppVendedores\obj\Debug\netstandard2.0\Vistas\EditarArticulo.xaml.g.cs

@@ -66,7 +66,19 @@ namespace AppVendedores.VistaModelo
                                 cuit = item.cuit,
                                 tip_descri = item.tip_descri,
                                 cli_categoria = item.cli_categoria,
-                                iva_codigo = item.iva_codigo
+                                iva_codigo = item.iva_codigo,
+                                cli_celular = item.cli_celular,
+                                cli_codpos1 = item.cli_codpos1,
+                                cli_codpos2 = item.cli_codpos2,
+                                cli_cuit1 = item.cli_cuit1,
+                                cli_cuit2 = item.cli_cuit2,
+                                cli_cuit3 = item.cli_cuit3,
+                                cli_ingbru = item.cli_ingbru,
+                                cli_telefono = item.cli_telefono,
+                                cli_transporte = item.cli_transporte,
+                                cli_actividad = item.cli_actividad,
+                                cli_zona = item.cli_zona,
+                                cli_lisp = item.cli_lisp
                             };
                             ListaClientes.Add(Npedido);
                         }
